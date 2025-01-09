@@ -83,3 +83,4 @@ print("Final Total Bill After All Discounts:", final_total, "THB") # แสด�
 if final_total > 3000: # เช็คว่าได้รับของขวัญหรือไม่
     print("Congratulations! You qualify for a free gift!") 
 
+
