@@ -23,17 +23,8 @@
 '''
 
 # สร้าง function ตรวจสอบปีอธิกสุรทิน รับ parameters เป็น years
-def is_leap_year(years):
-    if years % 4 == 0: # ตรวจสอบว่า years หารด้วย 4 ลงตัวไหม?
-        if years % 100 == 0: # ตรวจสอบว่า years หารด้วย 100,400 ลงตัวไหม? ซึ่งถ้าหาร 100 ลงตัวอย่างเดียวก็จะเป็น False
-            if years % 400 == 0: # ตรวจสอบว่า years หารด้วย 400 ลงตัวไหม?
-                return True
-            else : # ถ้าหาร 400 ไม่ลงตัวจะส่งค่ากลับเป็น False
-                return False
-        else : # ถ้าไม่หารด้วย 100 หรือ หาร 100 ไม่ลงตัวจะเป็น True
-           return True 
-    else : # ถ้าหาร 4 ไม่ลงตัวจะส่งค่ากลับเป็น False
-        return False
+def is_leap_year(year):  
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) # years ต้องหารด้วย 4 ลงตัว และ!! years ต้องไม่หารด้วย 100 ลงตัว หรือถ้าหากหารด้วย 100 ลงตัวก็ต้องหารด้วย 400 ลงตัว
     
 print(is_leap_year(2000))
 print(is_leap_year(1900))
