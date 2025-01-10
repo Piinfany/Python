@@ -7,7 +7,7 @@
 
 def filter_vowel_names_advanced(names: list, ignore_case: bool = True, vowel: str = "aeiou") -> list:
     if ignore_case: # ถ้า ignore_case เป็น True จะแปลงค่า vowels เป็นตัวพิมพ์เล็กให้หมด
-        vowel = vowel.lower()
+        vowel = vowel.lower() # **สร้างตัวแปรใหม่
     result = [name.strip() for name in names # ใช้ strip เพื่อลบช่องว่างซ้ายขวาของ name
                   # ตรวจสอบว่า name เป็น str หรือไม่
                   # จากนั้นก็ strip เพื่อลบช่องว่างซ้ายขวาอีกครั้ง
