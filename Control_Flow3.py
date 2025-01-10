@@ -21,6 +21,8 @@ for fizzbuzz in range(1,101):
 # เพิ่มการใช้ input
 number1 = int(input("Enter your number1 : "))
 number2 = int(input("Enter your number2 : "))
+# validate number1 และ number2
+# validate อะไรบ้าง ลอง research ดู
 for fizzbuzz in range(number1,number2+1):
     if fizzbuzz % 3 == 0 and fizzbuzz % 5 == 0:
         print("FizzBuzz")
