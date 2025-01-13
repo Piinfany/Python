@@ -35,6 +35,6 @@ print("Count of 5 in List :", lis1)
 # สมาชิกลำดับที่ 3 ของ tup
 print("3rd element in Tuple :", tup[2])
 
-# แก้ไขสมาชิกใน tuple (ซึ่งแก้ไขไม่ได้)
+# แก้ไขสมาชิกใน tuple (ซึ่งแก้ไขไม่ได้หลังจากสร้างแล้ว!!!)
 # TypeError: 'tuple' object does not support item assignment
 tup[0] = "avocado" 
