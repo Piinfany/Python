@@ -1,5 +1,5 @@
 # Add error handling to a script that divides two numbers entered by the user, ensuring division by zero is handled.
-
+# เพิ่มการจัดการข้อผิดพลาดให้กับสคริปต์ที่หารตัวเลขสองตัวที่ผู้ใช้ป้อน เพื่อให้แน่ใจว่าจะจัดการการหารด้วยศูนย์
 # สร้าง function 
 def divide_number():
     try: # พยายามรับค่าที่แปลงเป็น float 
