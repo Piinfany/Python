@@ -113,7 +113,7 @@ print(merge_data)
 # ทำการบันทึกข้อมูลที่รวมแล้วลงในไฟล์ใหม่ชื่อ 'merged_data.csv'
 try:
     merge_data.to_csv('merged_data.csv', index = False) # index=False: จะไม่บันทึกค่า index ที่ pandas ใช้ในการจัดการแถวต่างๆ ของ Dataframe ลงในไฟล์ csv
-    print("\nMerged data has been written to 'merged_data.csv'")
+    print("\nMerged data has been saved to 'merged_data.csv'")
 
 # ถ้ามีข้อผิดพลาดในการบันทึกไฟล์ (เช่น ไม่มีสิทธิ์ในการเขียนไฟล์) จะจับข้อผิดพลาดนี้และแสดงข้อความผิดพลาดที่เกิดขึ้น
 except Exception as e:
