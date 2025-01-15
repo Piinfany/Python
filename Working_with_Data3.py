@@ -117,5 +117,5 @@ try:
 
 # ถ้ามีข้อผิดพลาดในการบันทึกไฟล์ (เช่น ไม่มีสิทธิ์ในการเขียนไฟล์) จะจับข้อผิดพลาดนี้และแสดงข้อความผิดพลาดที่เกิดขึ้น
 except Exception as e:
-    print(f"Error writing to file: {e}")
+    print(f"An error occurred: {e}")
 
