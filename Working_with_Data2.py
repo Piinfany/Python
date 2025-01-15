@@ -158,13 +158,13 @@ def display_summary(averages):
     if averages: # ถ้ามีค่าเฉลี่ยจะแสดงข้อความ และทำงานถัดไป
         print("Subject Averages:")
         # สร้าง loop เพื่อคืนค่าทุกคู่ของ keys และ value ใน averages ซึ่ง subject จะเป็นชื่อวิชา และ average จะเป็นค่าเฉลี่ยของคะแนนในวิชานั้น
-        # เช่น ถ้า aver{'Math': 85.20, 'Science': 92.30} 
+        # เช่น ถ้า aver{'Math': 85.2, 'Science': 92.3} 
         # output : 
         # Subject Averages:
         # - Math: 85.2
         # - Science: 92.3
         for subject, average in averages.items(): 
-            print(f"  - {subject}: {average:.2f}")
+            print(f"  - {subject}: {average:.1f}")
     else: # ถ้าไม่มีจะแสดงข้อความเตือน
         print("No valid student data found to process.")
 
