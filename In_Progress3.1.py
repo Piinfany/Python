@@ -23,8 +23,9 @@ def fact(n):
     if n == 1 or n == 0:
         return 1
     else:
-        return n * fact(n-1)
+        return n * fact(n-1) # เรียกตัวเองซ้ำไปจนกว่าจะถึงฐาน (เมื่อ n ลดลงเหลือ 0 หรือ 1)
 
+# สร้าง function สำหรับการแสดงผลลัพธ์
 def display_fac(n):
     print(f"Factorial of {n} is {fact(n)}")
 
@@ -39,13 +40,13 @@ def main():
                 break # break ใช้เพื่อออกจากลูปเมื่อผู้ใช้พิมพ์ exit
             new_number = int(number)
             # การตรวจสอบค่าติดลบ
-            if new_number < 0:
+            if new_number < 0: # หากผู้ใช้ป้อนเลขติดลบ
                 print("Factorial is not defined for negative numbers.")
             else :
                 display_fac(new_number)
-        except RecursionError:
+        except RecursionError: # หากเกิด RecursionError (เช่น ค่า n ใหญ่เกินไป)
             print("Recursion limit reached. Please provide a smaller number.")           
-        except ValueError as e:
+        except ValueError as e: # หากเกิด ValueError (เช่น ผู้ใช้ป้อนข้อมูลที่ไม่ใช่ตัวเลข)
             print(e)
             
             
