@@ -85,7 +85,7 @@ def connect_db(db_name):
         return None
 
  # สร้าง function  pull_data(connect) เพื่อดึงข้อมูลจาก database มาเป็น dataframe
-def pull_data(connect):
+def Fetch_data(connect):
     try:
         query = "SELECT * FROM sales_data" # ดึง data โดยใช้ query ดึงข้อมูลทั้งหมดจากตาราง sales_data
         data = pd.read_sql(query,connect) # ดึง data มาเป็น dataframe
@@ -117,10 +117,10 @@ def calc_data(data):
 def main():
     db_name = '/Users/piinfany/Downloads/SQLife' # ชื่อของไฟล์ฐานข้อมูล SQLite
     connect = connect_db(db_name) # ถ้าเชื่อมต่อสำเร็จ ตัวแปร connect จะเก็บค่าการเชื่อมต่อนั้นไว้
-    # ถ้าเชื่อมต่อสำเร็จ จะนำฟังก์ชัน pull_data(connect) 
+    # ถ้าเชื่อมต่อสำเร็จ จะนำฟังก์ชัน Fetch_data(connect) 
     if connect:
-        data = pull_data(connect)
-        # ถ้า pull_data(connect) ดึงเสร็จแล้วจะตรวจสอบว่า data ไม่ว่างมั้ย
+        data = Fetch_data(connect)
+        # ถ้า Fetch_data(connect) ดึงเสร็จแล้วจะตรวจสอบว่า data ไม่ว่างมั้ย
         if data is not None:
             calc_data(data) # ถ้ามีข้อมูลจะนำฟังก์ชัน calc_data(data) 
         connect.close() #  ปิดการเชื่อมต่อฐานข้อมูล
