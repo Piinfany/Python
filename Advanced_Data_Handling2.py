@@ -104,7 +104,7 @@ import csv
 # นำเข้า library requests >> เป็นไลบรารีที่ใช้ในการส่งคำขอ HTTP (ในที่นี้เราจะใช้มันเพื่อดึงข้อมูลจาก API)
 import requests as req
 
-# สร้าง function Fetch_data() เพื่อดึงข้อมูลจาก API มาเป็น JSON
+# สร้าง function Fetch_data() เพื่อดึงข้อมูลจาก API มาเป็น JSON test
 def fetch_data():
     url_data = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1" # ส่งคำขอไปยัง API ของ CoinGecko.
     # พารามิเตอร์ที่ส่งไปพร้อมกับคำขอ API
