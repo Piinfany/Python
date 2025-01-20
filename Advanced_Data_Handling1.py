@@ -93,7 +93,7 @@ def Fetch_data(connect):
         return data # คืนค่าผลลัพธ์เป็น data ที่ดึงมา
     # ถ้ามีข้อผิดพลาดจะจับข้อผิดพลาด
     except sq.Error as e:
-        print(f"Error pull data: {e}")
+        print(f"Error Fetch data: {e}")
         return None
 
 # สร้าง function calc_data(data) เพื่อคำนวณค่าต่างๆ และแสดง
