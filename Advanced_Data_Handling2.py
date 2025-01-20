@@ -151,7 +151,7 @@ def save_csv(data, filename='crypto_data.csv'):
             file_w.writeheader()  # เขียนชื่อคอลัมน์ลงในไฟล์
             # สร้าง loops เพื่อเดินผ่านข้อมูลทุกแถวใน data นั่นคือ list ของ dictionary ที่มีข้อมูลเหรียญคริปโต
             for row in data:
-                file_w.writerow(row)  # # เขียนข้อมูลแต่ละแถวจาก data (ซึ่งแต่ละแถวเป็น dictionary) ลงในไฟล์ CSV
+                file_w.writerow(row)  # เขียนข้อมูลแต่ละแถวจาก data (ซึ่งแต่ละแถวเป็น dictionary) ลงในไฟล์ CSV
             print(f"Data successfully saved to {filename}")
     except IOError as e:
         print(f"Error writing to file: {e}")
