@@ -173,7 +173,8 @@ def main():
     # ใช้ตัวแปร file_path(ที่มาของ file)
     # ไฟล์นี้จะต้องเก็บข้อมูลในรูปแบบ JSON ของนักเรียนและคะแนนของแต่ละวิชา
     # ใส่ path ที่ถูกต้อง
-    file_path = '/Users/piinfany/Downloads/student_grades.json'
+    file_path = input("Enter your file path :")
+   # '/Users/piinfany/Downloads/student_grades.json'
     
     # เรียกใช้ function load_json_file(file_path) เพื่อเปิดไฟล์ JSON ที่ file_path และทำการอ่านและแปลงข้อมูลจากไฟล์ JSON เป็น Python dictionary
     # ผลลัพธ์จาก function จะเก็บในตัวแปร data
