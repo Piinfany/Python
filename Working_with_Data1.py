@@ -44,7 +44,7 @@ def filter_saledata (n_input_File,year_month,n_output_file):
         if not all(col in sales_data.columns for col in ['Date', 'Sales Amount','Customer ID','Product ID']):
             raise ValueError("ไฟล์ CSV ขาดคอลัมน์ที่จำเป็น")
         
-        # แปลงคอลัมน์ 'Date' >> ชนิดข้อมูลวันที่ และ ใช้ errors='coerce' เพื่อให้ค่าที่ไม่สามารถแปลงเป็นวันที่ถูกแทนที่ด้วย NaT
+        # แปลงคอลัมน์ 'Date' >> ชนิดข้อมูลวันที่ และ ใช้ errors='coerce' เพื่อให้ค่าที่ไม่สามารถแปลงเป็นวันที่ถูกแทนที่ด้วย NaT(Not a Time)
         sales_data['Date'] = pd.to_datetime(sales_data['Date'], errors='coerce')
 
         # จากนั้นก็ตรวจสอบว่าแปลงสำเร็จไหม โดยใช้ isnull() เพื่อเช็คว่าแถวไหนมีค่า NaT และจะแสดงข้อความ
