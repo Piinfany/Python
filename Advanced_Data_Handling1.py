@@ -84,12 +84,12 @@ def connect_db(db_name):
         print(f"Error connecting to DB: {e}")
         return None
 
- # สร้าง function  pull_data(connect) เพื่อดึงข้อมูลจาก database มาเป็น dataframe
+ # สร้าง function  Fetch_data(connect) เพื่อดึงข้อมูลจาก database มาเป็น dataframe
 def Fetch_data(connect):
     try:
         query = "SELECT * FROM sales_data" # ดึง data โดยใช้ query ดึงข้อมูลทั้งหมดจากตาราง sales_data
         data = pd.read_sql(query,connect) # ดึง data มาเป็น dataframe
-        print("Data Pull successfully!!")
+        print("Data Fetch successfully!!")
         return data # คืนค่าผลลัพธ์เป็น data ที่ดึงมา
     # ถ้ามีข้อผิดพลาดจะจับข้อผิดพลาด
     except sq.Error as e:
