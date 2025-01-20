@@ -158,8 +158,8 @@ def save_csv(data, filename='crypto_data.csv'):
 
 # สร้าง function
 def calculate_statistics(data):
-    current_prices = [coin['Current Price (USD)'] for coin in data]
-    price_changes = [coin['24h Price Change (%)'] for coin in data]
+    current_prices = [c['Current Price (USD)'] for c in data]
+    price_changes = [c['24h Price Change (%)'] for c in data]
     
     avg_price = sum(current_prices) / len(current_prices)
     min_price = min(current_prices)
