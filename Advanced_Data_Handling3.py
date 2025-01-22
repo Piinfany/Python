@@ -133,7 +133,11 @@ def run_query(connection,query):
     except Error as e:
         print(f"Error run query: {e}")
         return None # คืนค่า None ซึ่งหมายความว่าไม่สามารถดำเนินการกับคำสั่ง SQL ได้ และไม่สามารถส่งผลลัพธ์กลับมา
-
+def display_table(data):
+    # ใช้ pandas เพื่อแสดงข้อมูลในรูปแบบตาราง
+    df = pd.DataFrame(data)
+    print("\nข้อมูลที่ดึงมาแสดงผล:")
+    print(df)
 # นำเข้า library matplotlib.pyplot >> ในการสร้างกราฟแท่ง (bar chart)
 import matplotlib.pyplot as plt
 
