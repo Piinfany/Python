@@ -184,6 +184,8 @@ if __name__ == "__main__": # ใช้เพื่อตรวจสอบว่
     output_file = sys.argv[-1]  # รับ output file path
     main(file_paths, output_file) # เรียกใช้ function main โดยใช้ file_paths และ output_file ในพารามิเตอร์
 
-    
+# คำสั่งในการรันโปรแกรม
+# /usr/local/bin/python3.12 /Users/piinfany/Documents/GitHub/Python/Python/Python/Advanced_Data_Handling6.py /Users/piinfany/Downloads/employees.csv /Users/piinfany/Downloads/student_grades.json /Users/piinfany/Downloads/output.csv
+
 
 
