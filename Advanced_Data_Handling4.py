@@ -89,8 +89,12 @@ def gen_insign(univer):
 
 # สร้าง function save_to_json โดยมี parameter data ใช้เพื่อบันทึกข้อมูลที่ได้จาก API ลงในไฟล์ JSON
 def save_to_json(filename,data):
-    with open(filename, 'w',encoding='utf-8') as file: # สร้างไฟล์ JSON ชื่อ university_insights.json โดยใช้โหมด w สำหรับการเขียนไฟล์ และใช้ utf-8 สำหรับการเขียนภาษาไทย
-        json.dump(data, file, indent=4) # บันทึกข้อมูลที่ได้จาก API ลงในไฟล์ JSON โดยใช้ indent=4 สำหรับการจัดรูปแบบข้อมูลให้สวยงาม
+    try:
+        with open(filename, 'w',encoding='utf-8') as file: # สร้างไฟล์ JSON ชื่อ university_insights.json โดยใช้โหมด w สำหรับการเขียนไฟล์ และใช้ utf-8 สำหรับการเขียนภาษาไทย
+            json.dump(data, file,ensure_ascii=False, indent=4) # บันทึกข้อมูลที่ได้จาก API ลงในไฟล์ JSON โดยใช้ indent=4 สำหรับการจัดรูปแบบข้อมูลให้สวยงาม และ ensure_ascii=False สำหรับการเขียนภาษาไทย
+            print(f"Data saved to {filename} successfully!!") # แสดงข้อความว่าบันทึกข้อมูลสำเร็จ
+    except Exception as e: # จัดการข้อผิดพลาดที่เกิดขึ้น
+        print(f"Error saving data: {e}")
 
 # สร้าง function main ที่ใช้เรียกใช้งาน function ทั้งหมด
 def main():
