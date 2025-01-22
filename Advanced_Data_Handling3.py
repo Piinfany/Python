@@ -142,7 +142,7 @@ def visualize_data(data):
     # ตรวจสอบว่ามี data ไหม?
     if data:
         departments = [row['department'] for row in data]
-        count_employee = [row['id'] for row in data]
+        count_employee = [row['employee_countid'] for row in data]
         plt.figure(figsize=(10, 6))
         plt.bar(departments, count_employee, color='skyblue')
         plt.xlabel('Department')
@@ -172,5 +172,7 @@ def main():
 
         # Close the connection
         connection.close()
-
+if __name__ == "__main__":
+    main()
+    
 
