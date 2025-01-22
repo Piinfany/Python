@@ -111,7 +111,7 @@ def connect_db():
             host = 'localhost', # ชื่อ host ของฐานข้อมูล
             database = 'sample_database', # ชื่อฐานข้อมูล
             user = 'root',  # ชื่อผู้ใช้ของฐานข้อมูล
-            password = '******' # รหัสผ่านของฐานข้อมูล
+            password = 'Pinut251157' # รหัสผ่านของฐานข้อมูล
         )
         if connection.is_connected(): # ถ้าเชื่อมต่อสำเร็จ จะแสดงข้อความ
             print("Connected to MySQL database!!")
