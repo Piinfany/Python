@@ -123,7 +123,7 @@ def connect_db():
 
 # สร้าง function run_query(connection,query) เพื่อ run คำสั่ง sql(query) บนฐานข้อมูล mysql
 def run_query(connection,query):
-    try: # พยายาม
+    try: # พยายาม run คำสั่ง SQL บนฐานข้อมูล
         run = connection.cursor(dictionary=True) # สร้าง run เพื่อชี้ไปที่ฐานข้อมูล โดยใช้ parameter dict >> ผลลัพธ์ที่ได้จากการรันคำสั่ง SQL จะถูกจัดเก็บเป็น dictionary (เข้าถึงข้อมูลง่ายขึ้น)
         run.execute(query) # รันคำสั่ง SQL ที่ได้รับมาในพารามิเตอร์ query โดยจะทำการส่งคำสั่ง SQL ไปยังฐานข้อมูล
         result = run.fetchall() # ใช้ในการดึงข้อมูลทั้งหมดจากผลลัพธ์ของคำสั่ง SQL ที่รันไป โดยจะคืนค่าผลลัพธ์เป็นรายการ (list) ของ dictionary
