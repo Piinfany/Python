@@ -140,39 +140,44 @@ import matplotlib.pyplot as plt
 # สร้าง function visualize_data เพื่อสร้างกราฟ โดยมี parameter เป็น data >> ข้อมูลที่ต้องการสร้างกราฟ
 def visualize_data(data):
     # ตรวจสอบว่ามี data ไหม?
-    if data:
-        departments = [row['department'] for row in data]
-        count_employee = [row['employee_countid'] for row in data]
-        plt.figure(figsize=(10, 6))
-        plt.bar(departments, count_employee, color='skyblue')
-        plt.xlabel('Department')
-        plt.ylabel('Employee Count')
-        plt.title('Number of Employees per Department')
-        plt.xticks(rotation=45, ha='right')
-        plt.tight_layout()
-        plt.show()
+    if data: # ถ้ามี data
+        departments = [row['department'] for row in data] # สร้าง list ของแผนก
+        count_employee = [row['employee_count'] for row in data] # สร้าง list ของจำนวนพนักงาน
+        plt.figure(figsize=(10, 6)) # กำหนดขนาดของกราฟ
+        plt.bar(departments, count_employee, color='skyblue') # สร้างกราฟแท่ง โดยกำหนดแกน X เป็นแผนก และแกน Y เป็นจำนวนพนักงาน
+        plt.xlabel('Department') # กำหนดชื่อแกน X
+        plt.ylabel('Employee Count') # กำหนดชื่อแกน Y
+        plt.title('Number of Employees per Department') # กำหนดชื่อกราฟ
+        plt.xticks(rotation=45, ha='right') # หมุนชื่อแผนก 45 องศา และจัดตำแหน่งชื่อแผนกให้ชิดขวา
+        plt.tight_layout() # ปรับขนาดกราฟให้พอดี
+        plt.show() # แสดงกราฟ
 
+# สร้าง function main() เพื่อรันโปรแกรม
 def main():
-    # SQL query to fetch the number of employees per department
+    # query ที่ต้องการใช้
     query = """
     SELECT department, COUNT(*) AS employee_count
     FROM employees
     GROUP BY department;
     """
 
-    # Connect to the database
+    # เชื่อมต่อกับฐานข้อมูล โดยใช้ function connect_db()
     connection = connect_db()
 
+    # ตรวจสอบว่าเชื่อมต่อสำเร็จมั้ย? ถ้าสำเร็จจะทำการดึงข้อมูล
     if connection:
-        # Execute the query and fetch the data
+        # ดึงข้อมูลจากฐานข้อมูล โดยใช้ function run_query(connection,query)
         data = run_query(connection, query)
         
-        # Visualize the data
+        # ตรวจสอบว่ามีข้อมูลไหม? ถ้ามีจะทำการสร้างกราฟ
         visualize_data(data)
 
-        # Close the connection
+        # ปิดการเชื่อมต่อกับฐานข้อมูล
         connection.close()
-if __name__ == "__main__":
-    main()
+        print("Connection closed!!")
+
+# รันโปรแกรม
+if __name__ == "__main__": # ถ้าโปรแกรมถูกเรียกใช้โดยตรงจะทำการรันโปรแกรม
+    main() # รัน function main()
     
 
