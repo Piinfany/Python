@@ -108,16 +108,16 @@ from mysql.connector import Error
 def connect_db():
     try: # พยายามเชื่อมต่อฐานข้อมูล โดยมี host,database,user,password ในการเข้าถึง
         connection = mysql.connector.connect(
-            host = 'localhost',
-            database = 'sample_database',
-            user = 'root',
-            password = 'Pinut251157'
+            host = 'localhost', # ชื่อ host ของฐานข้อมูล
+            database = 'sample_database', # ชื่อฐานข้อมูล
+            user = 'root',  # ชื่อผู้ใช้ของฐานข้อมูล
+            password = '******' # รหัสผ่านของฐานข้อมูล
         )
         if connection.is_connected(): # ถ้าเชื่อมต่อสำเร็จ จะแสดงข้อความ
             print("Connected to MySQL database!!")
             return connection # คืนค่าการเชื่อมต่อไปใน function
     # ถ้ามีข้อผิดพลาดจะจับข้อผิดพลาด
-    except Error as e: 
+    except Error as e:  
         print(f"Error: {e}")
         return None # ถ้าเกิดข้อผิดพลาดจะคืนค่า None ซึ่งหมายความว่าการเชื่อมต่อล้มเหลว
 
@@ -134,8 +134,10 @@ def run_query(connection,query):
         print(f"Error run query: {e}")
         return None # คืนค่า None ซึ่งหมายความว่าไม่สามารถดำเนินการกับคำสั่ง SQL ได้ และไม่สามารถส่งผลลัพธ์กลับมา
 
+# นำเข้าไลบรารี pandas เพื่อใช้ในการแสดงผลลัพธ์ในรูปแบบตาราง
+import pandas as pd 
+
 # สร้าง function display_table(data) เพื่อแสดง output รูปแบบตาราง data >> ข้อมูลที่ต้องการแสดงผล
-import pandas as pd
 def display_table(data):
     # ใช้ pandas เพื่อแสดงข้อมูลในรูปแบบตาราง
     df = pd.DataFrame(data) # สร้าง DataFrame จากข้อมูลที่ได้
