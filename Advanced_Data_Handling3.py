@@ -134,12 +134,14 @@ def run_query(connection,query):
         print(f"Error run query: {e}")
         return None # คืนค่า None ซึ่งหมายความว่าไม่สามารถดำเนินการกับคำสั่ง SQL ได้ และไม่สามารถส่งผลลัพธ์กลับมา
 
-#สร้าง function 
+# สร้าง function display_table(data) เพื่อแสดง output รูปแบบตาราง data >> ข้อมูลที่ต้องการแสดงผล
+import pandas as pd
 def display_table(data):
     # ใช้ pandas เพื่อแสดงข้อมูลในรูปแบบตาราง
-    df = pd.DataFrame(data)
-    print("\nข้อมูลที่ดึงมาแสดงผล:")
-    print(df)
+    df = pd.DataFrame(data) # สร้าง DataFrame จากข้อมูลที่ได้
+    print("\nOutput :")
+    print(df) # แสดงผลลัพธ์ในรูปแบบตาราง
+
 # นำเข้า library matplotlib.pyplot >> ในการสร้างกราฟแท่ง (bar chart)
 import matplotlib.pyplot as plt
 
@@ -175,6 +177,9 @@ def main():
         # ดึงข้อมูลจากฐานข้อมูล โดยใช้ function run_query(connection,query)
         data = run_query(connection, query)
         
+        # ตรวจสอบว่ามีข้อมูลไหม? ถ้ามีจะทำการแสดงผลลัพธ์ในรูปแบบตาราง
+        display_table(data)
+
         # ตรวจสอบว่ามีข้อมูลไหม? ถ้ามีจะทำการสร้างกราฟ
         visualize_data(data)
 
