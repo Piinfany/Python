@@ -157,35 +157,68 @@ def consolidate_data(file_paths):
         return combined_data # คืนค่าข้อมูลที่รวมกัน
     else: # ถ้าไม่มีข้อมูลที่รวมกัน
         logger.error("No data to consolidate") # บันทึกข้อความว่าไม่มีข้อมูลที่รวมกัน
-        return None
+        return None # คืนค่า None หากไม่มีข้อมูลที่รวมกัน
 
 # สร้าง function save_to_csv โดยมี parameter data, output_file ใช้สำหรับบันทึกข้อมูลที่รวมกันลงในไฟล์ CSV 
 def save_to_csv(combined_data, output_file):
     try: # พยายามบันทึกข้อมูลลงในไฟล์ CSV
         if combined_data is not None: # ถ้ามีข้อมูลที่รวมกัน
-            combined_data.to_csv(output_file, index=False) # บันทึกข้อมูลที่รวมกันลงในไฟล์ CSV
+            combined_data.to_csv(output_file, index=False) # บันทึกข้อมูลที่รวมกันลงในไฟล์ CSV โดยไม่รวม index 
             logger.info(f"Data saved to {output_file} successfully!!") # บันทึกข้อความว่าบันทึกข้อมูลสำเร็จ
         else: # ถ้าไม่มีข้อมูลที่รวมกัน
             logger.error("No data to save") # บันทึกข้อความว่าไม่มีข้อมูลที่ต้องการบันทึก
     except Exception as e: # จัดการข้อผิดพลาดที่เกิดขึ้น
         logger.error(f"Error saving data: {e}") # บันทึกข้อความว่าเกิดข้อผิดพลาดในการบันทึกข้อมูล
 
-# สร้าง function main ที่ใช้เรียกใช้งาน function ทั้งหมด
-def main(file_paths,output_file):
-    consolidated_df = consolidate_data(file_paths) # เรียกใช้ function consolidate_data โดยใช้ file_path ในพารามิเตอร์
-    save_to_csv(consolidated_df, output_file) # เรียกใช้ function save_to_csv โดยใช้ข้อมูลที่รวมกัน และ output_file ในพารามิเตอร์
+# สร้าง function get_input_files โดยไม่มีพารามิเตอร์ ใช้สำหรับรับ path ของไฟล์ที่ต้องการรวมกัน
+def get_input_files(): # สร้าง function get_input_files โดยไม่มีพารามิเตอร์
+    file_paths = [] # สร้าง list ว่างเพื่อเก็บ path ของไฟล์
+    print("Please enter the paths of the files you want to combine (type 'done' when finished)") # แสดงข้อความให้ผู้ใช้กรอก path ของไฟล์ที่ต้องการรวมกัน
+    while True: # วนลูปไปเรื่อยๆ
+        file_path = input("Enter file path: ") # รับ path ของไฟล์จากผู้ใช้
+        if file_path.lower() == 'done':  # ใช้ 'done' เพื่อหยุดการป้อนข้อมูล
+            break # ออกจากลูป
+        elif os.path.exists(file_path): # ตรวจสอบว่าไฟล์นั้นมีอยู่จริงหรือไม่
+            file_paths.append(file_path) # เพิ่ม path ของไฟล์ลงใน list
+        else: # ถ้าไฟล์ไม่มีอยู่จริง
+            print(f"File {file_path} does not exist, please try again.") # แสดงข้อความว่าไฟล์ไม่มีอยู่จริง
+    
+    if len(file_paths) == 0: # ถ้าไม่มี path ของไฟล์ที่ถูกกรอก
+        logger.error("No valid file paths provided.") # บันทึกข้อความว่าไม่มี path ของไฟล์ที่ถูกกรอก
+        return None # คืนค่า None
 
-# เรียกใช้ function main เพื่อรันโปรแกรม
+# สร้าง function main ใช้สำหรับเรียกใช้งาน function อื่นๆ
+def get_input_files(): # สร้าง function get_input_files โดยไม่มีพารามิเตอร์
+    file_paths = [] # สร้าง list ว่างเพื่อเก็บ path ของไฟล์
+    print("Please enter the paths of the files you want to combine (type 'done' when finished)") # แสดงข้อความให้ผู้ใช้กรอก path ของไฟล์ที่ต้องการรวมกัน
+    while True: # วนลูปไปเรื่อยๆ
+        file_path = input("Enter file path: ") # รับ path ของไฟล์จากผู้ใช้
+        if file_path.lower() == 'done ' or file_path.lower() == 'finished' :  # ใช้ 'done' เพื่อหยุดการป้อนข้อมูล
+            break # ออกจากลูป
+        elif os.path.exists(file_path): # ตรวจสอบว่าไฟล์นั้นมีอยู่จริงหรือไม่
+            file_paths.append(file_path) # เพิ่ม path ของไฟล์ลงใน list
+        else: # ถ้าไฟล์ไม่มีอยู่จริง
+            print(f"File {file_path} does not exist, please try again.") # แสดงข้อความว่าไฟล์ไม่มีอยู่จริง
+    
+    if len(file_path) == 0: # ถ้าไม่มี path ของไฟล์ที่ถูกกรอก
+        logger.error("No valid file paths provided.") # บันทึกข้อความว่าไม่มี path ของไฟล์ที่ถูกกรอก
+        return None # คืนค่า None หากไม่มี path ของไฟล์ที่ถูกกรอก
+    
+    return file_paths # คืนค่า path ของไฟล์ที่ถูกกรอก
+
+# สร้าง function main ใช้สำหรับเรียกใช้งาน function อื่นๆ
+def main(): # สร้าง function main โดยไม่มีพารามิเตอร์
+    file_paths = get_input_files()  # รับข้อมูลจากผู้ใช้
+    if not file_paths: # ถ้าไม่มีข้อมูลที่รับมา
+        return # ออกจากโปรแกรม
+    output_file = 'consolidated_output.csv' # กำหนดชื่อไฟล์ที่จะบันทึกข้อมูลที่รวมกัน
+    consolidated_df = consolidate_data(file_paths) # รวมข้อมูลจากไฟล์ทั้งหมดเข้าด้วยกัน
+    save_to_csv(consolidated_df, output_file) # บันทึกข้อมูลที่รวมกันลงในไฟล์ CSV
+
+# เรียกใช้ function main
 if __name__ == "__main__": # ใช้เพื่อตรวจสอบว่าโค้ดถูกเรียกใช้โดยตรงหรือไม่
-    if len(sys.argv) < 2: # ตรวจสอบว่ามี arguments ที่ถูกส่งมาหรือไม่ ถ้าไม่มีให้แสดงข้อความและออกจากโปรแกรม
-        logger.error("Please provide at least one file path as argument.") # บันทึกข้อความว่ากรุณาใส่อย่างน้อยหนึ่งเส้นทางไฟล์เป็นอาร์กิวเมนต์
-        sys.exit(1) # ออกจากโปรแกรม
-    file_paths = sys.argv[1:-1]  # รับ path ของไฟล์ต่างๆ
-    output_file = sys.argv[-1]  # รับ output file path
-    main(file_paths, output_file) # เรียกใช้ function main โดยใช้ file_paths และ output_file ในพารามิเตอร์
+    main() # เรียกใช้ function main
 
-# คำสั่งในการรันโปรแกรม
-# /usr/local/bin/python3.12 /Users/piinfany/Documents/GitHub/Python/Python/Python/Advanced_Data_Handling6.py /Users/piinfany/Downloads/employees.csv /Users/piinfany/Downloads/student_grades.json /Users/piinfany/Downloads/output.csv
 
 
 
