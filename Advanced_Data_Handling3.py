@@ -133,6 +133,8 @@ def run_query(connection,query):
     except Error as e:
         print(f"Error run query: {e}")
         return None # คืนค่า None ซึ่งหมายความว่าไม่สามารถดำเนินการกับคำสั่ง SQL ได้ และไม่สามารถส่งผลลัพธ์กลับมา
+
+#สร้าง function 
 def display_table(data):
     # ใช้ pandas เพื่อแสดงข้อมูลในรูปแบบตาราง
     df = pd.DataFrame(data)
