@@ -4,7 +4,7 @@
 # mkdir Environment_Setup1
 
 # เข้าถึงโฟลเดอร์โปรเจ็กต์
-# Environment_Setup1
+# cd Environment_Setup1
 
 # สร้าง Virtual Environment(สิ่งแวดล้อมเสมือน) ชื่อ myenv เพื่อป้องกันการแยกการทำงานของโปรแกรมที่ต่างกัน
 # python3 -m venv myenv
