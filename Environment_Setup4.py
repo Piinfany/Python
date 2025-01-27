@@ -23,10 +23,14 @@
 # เปิด Virtual Environment >> เห็นว่ามีชื่อ myenv ข้างหน้า $ แสดงว่าเปิด Virtual Environment อยู่
 # source myenv/bin/activate
 
+# สร้างไฟล์ Python ชื่อ Environment_Setup4.py >> เพื่อจัดการ dependencies
+# touch Environment_Setup4.py
+
 # ติดตั้ง dependencies
 # pip install -r requirements.txt
 
 
+# นำ โค้ดไปใส่ใน Environment_Setup4.py
 # นำเข้า subprocess >> ใช้สำหรับเรียกใช้คำสั่งในระบบปฏิบัติการ และรับผลลัพธ์จากคำสั่งนั้น
 import subprocess
 
