@@ -12,12 +12,13 @@
 # เปิด Virtual Environment >> เห็นว่ามีชื่อ myenv ข้างหน้า $ แสดงว่าเปิด Virtual Environment อยู่
 # source myenv/bin/activate
 
-# ติดตั้ง Pandas
-# pip install pandas
-
 # สร้างไฟล์ Python ชื่อ read_csv.py >> เพื่ออ่านไฟล์ CSV
 # touch read_csv.py # สร้างไฟล์ Python
 
+# ติดตั้ง Pandas
+# pip install pandas
+
+# นำโค้ดไปใส่ในไฟล์ read_csv.py
 # เขียนโค้ด Python ในไฟล์ read_csv.py
 import pandas as pd
 
@@ -31,4 +32,5 @@ data = pd.read_csv(file_path, encoding='utf-8', delimiter=';')
 print(data.head())
 
 # ทดสอบการทำงานโดยรันไฟล์ Python
+# cd .. # ออกจากโฟลเดอร์ Environment_Setup1
 # python read_csv.py

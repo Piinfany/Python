@@ -72,3 +72,7 @@ def main():
 # เรียกใช้ function main
 if __name__ == "__main__": # ถ้าไฟล์ถูกเรียกใช้โดยตรงจะเรียกใช้ function main
     main() # รัน function main
+
+# ทดสอบการทำงานโดยรันไฟล์ Python
+# cd .. # ออกจากโฟลเดอร์ Environment_Setup3
+# python main.py

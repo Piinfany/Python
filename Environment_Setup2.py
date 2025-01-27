@@ -12,12 +12,13 @@
 # เปิด Virtual Environment >> เห็นว่ามีชื่อ myenv ข้างหน้า $ แสดงว่าเปิด Virtual Environment อยู่
 # source myenv/bin/activate
 
-# ติดตั้ง NumPy และ requests
-# pip install numpy requests
-
 # สร้างไฟล์ Python ชื่อ use_libraries.py >> เพื่อใช้งาน NumPy และ requests
 # touch use_libraries.py # สร้างไฟล์ Python
 
+# ติดตั้ง NumPy และ requests
+# pip install numpy requests
+
+# นำโค้ดไปใส่ในไฟล์ use_libraries.py
 # เขียนโค้ด Python ในไฟล์ use_libraries.py
 import numpy as np
 import requests
@@ -50,6 +51,7 @@ print(f"ค่าเบี่ยงเบนมาตรฐาน : {std_price:.
 
 # ทดสอบการทำงานโดยรันไฟล์ Python
 # รันโค้ด Python ในไฟล์ use_libraries.py
+# cd .. # ออกจากโฟลเดอร์ Environment_Setup1
 # python use_libraries.py
 
 
